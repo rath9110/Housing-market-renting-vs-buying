@@ -16,7 +16,7 @@ def graph_nordic(house_price, indicator):
     price = house_price.loc[house_price["Indicator"] == indicator]
     price = price.loc[0:, ["Country", "Time", "Value"]]
     price["Rent prices"] = price["Value"]
-    price["Rent prices"] = price["Rent prices"]-4
+    price["Rent prices"] = price["Rent prices"]
     price[["Quarter", "Year"]] = price["Time"].str.split("-", expand=True)
     price = price.loc[house_price["Country"].isin(["Sweden", "Norway", "Finland", "Denmark"])]
 
@@ -31,6 +31,8 @@ g1.set(title="House price development of the Nordic countries")
 g2.set(title ="Rent price development of the Nordic countries")
 g1.tick_params(labelsize=5)
 g2.tick_params(labelsize=5)
-g1.set_ylim([100, 140])
-g2.set_ylim([100, 140])
+g1.set_ylim([90, 140])
+g1.set_ylabel("Cost to buy (%)")
+g2.set_ylim([90, 140])
+g1.set_ylabel("Cost to rent (%)")
 plt.show()
