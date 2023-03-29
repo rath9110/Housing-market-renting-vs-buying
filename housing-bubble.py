@@ -13,14 +13,14 @@ og_house_price = house_price
 def graph_nordic(house_price, indicator):
     house_price = house_price
     indicator = indicator
-    rent_price = house_price.loc[house_price["Indicator"] == indicator]
-    rent_price = rent_price.loc[0:, ["Country", "Time", "Value"]]
-    rent_price["Rent prices"] = rent_price["Value"]
-    rent_price["Rent prices"] = rent_price["Rent prices"]-4
-    rent_price[["Quarter", "Year"]] = rent_price["Time"].str.split("-", expand=True)
-    rent_price = rent_price.loc[house_price["Country"].isin(["Sweden", "Norway", "Finland", "Denmark"])]
+    price = house_price.loc[house_price["Indicator"] == indicator]
+    price = price.loc[0:, ["Country", "Time", "Value"]]
+    price["Rent prices"] = price["Value"]
+    price["Rent prices"] = price["Rent prices"]-4
+    price[["Quarter", "Year"]] = price["Time"].str.split("-", expand=True)
+    price = price.loc[house_price["Country"].isin(["Sweden", "Norway", "Finland", "Denmark"])]
 
-    return rent_price
+    return price
 
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(15, 15))
 
