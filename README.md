@@ -26,6 +26,8 @@ def graph_nordic(house_price, indicator):
     return price
 ```
 
+##Genom att använda seaborn och matplotlib kan jag enkelt formatera några fina grafer över hur prisutvecklingen skiljer sig mellan bostadsmarknaden
+##och hyresmarknaden
 ```
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(15, 15))
 
@@ -36,7 +38,10 @@ g1.set(title="House price development of the Nordic countries")
 g2.set(title ="Rent price development of the Nordic countries")
 g1.tick_params(labelsize=5)
 g2.tick_params(labelsize=5)
-g1.set_ylim([100, 140])
-g2.set_ylim([100, 140])
+g1.set_ylim([90, 140])
+g1.set_ylabel("Cost to buy (%)")
+g2.set_ylim([90, 140])
+g1.set_ylabel("Cost to rent (%)")
 plt.show()
 ```
+![Figure_1](https://user-images.githubusercontent.com/106667697/228610412-d7ec103d-7568-46f4-9de8-1b7a631bbd5f.png)
